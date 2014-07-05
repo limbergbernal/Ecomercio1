@@ -1,0 +1,61 @@
+
+<table class="table" id="tablarol" class="display" celllspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Detallar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+            foreach ($datos as $rol){
+        ?>
+        <tr>
+            <td class="active"><?php echo $rol->getId()?></td>
+            <td class="active"><?php echo $rol->getNombre()?></td>
+            <td><a href="#" data-toggle="modal" data-target="#verModal<?php echo $rol->getId()?>">
+                <img src="<?php echo $this->basePath().'/img/zf2-logo.png'?>" alt="" class="img-circle img-responsive" title="Ver Detalle">
+            </a>
+            
+            
+            <!-- Modal -->
+            <div class="modal fade" id="verModal<?php echo $rol->getId()?>"
+                 data-backdrop="static" data-keyboard="false"
+                 draggable="modal-header"
+                 tabindex="-1" role="dialog" 
+                 aria-labelledby="myModalLabel" 
+                 aria-hidden="true">
+                
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Detalle del Rol</h4>
+                  </div>
+                  <div class="modal-body">
+                      <div class="row">
+                          <div class="col-xs-4">ID: </div>
+                          <div class="col-xs-8"><?php echo $rol->getId();?></div>
+                      </div>
+                      <div class="row">
+                          <div class="col-xs-4">Nombre: </div>
+                          <div class="col-xs-8"><?php echo $rol->getNombre();?></div>                          
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                  </div>
+                </div>
+              </div>
+             </div>  <!--fin modal--> 
+             
+        </td>
+        </tr>
+        
+            <?php 
+                } 
+            ?>
+    </tbody>
+</table>
+
